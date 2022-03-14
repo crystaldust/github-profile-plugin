@@ -14,8 +14,8 @@
   border-radius: 15px;
   box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
   background: $secondary-background-light;
-  
-  body.dark &{
+
+  body.dark & {
     background: $secondary-background-dark;
     color: $font-color-light;
   }
@@ -40,8 +40,8 @@
     font-weight: bold;
     line-height: 23.7px;
     color: $font-color-secondary;
-  
-    body.dark &{
+
+    body.dark & {
       color: $font-color-light;
     }
   }
@@ -50,7 +50,7 @@
     font-size: $font-regular;
     font-weight: 400;
     line-height: 19.25px;
-    color: $primary-color; 
+    color: $primary-color;
   }
 
   &__joined {
@@ -88,7 +88,7 @@
     border-radius: 10px;
     background: $primary-background-light;
 
-    body.dark &{
+    body.dark & {
       background: $primary-background-dark;
     }
   }
@@ -105,8 +105,8 @@
       font-weight: 700;
       line-height: 23.7px;
       color: $font-color-secondary;
-      
-      body.dark &{
+
+      body.dark & {
         color: $font-color-light;
       }
     }
@@ -140,14 +140,14 @@
     line-height: 19.25px;
     color: $font-color-primary;
     text-decoration: none;
-  
-    body.dark &{
+
+    body.dark & {
       color: $font-color-light;
     }
-  
+
     &:hover {
       text-decoration: underline;
-    } 
+    }
   }
   .location:hover {
     text-decoration: none;
@@ -243,8 +243,8 @@
     column-gap: 37px;
     width: 730px;
     padding: 48px;
-    
-    &__img{
+
+    &__img {
       grid-area: 1/1/5/2;
       align-self: flex-start;
     }
@@ -252,7 +252,7 @@
     &__container {
       flex-wrap: wrap;
       flex-direction: column;
-      justify-content:flex-start;
+      justify-content: flex-start;
       grid-area: 1/2/2/4;
       height: 63px;
     }

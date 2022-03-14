@@ -1,4 +1,4 @@
-@use "./_global.scss" as *;
+@use './_global.scss' as *;
 
 * {
   box-sizing: border-box;
@@ -30,7 +30,6 @@ body {
 //    background-color: $primary-background-light;
 //    transition: 0.3s ease all;
 //}
-
 
 .dark {
   background-color: $primary-background-dark;

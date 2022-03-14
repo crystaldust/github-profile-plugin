@@ -8,7 +8,6 @@ import './styles/GithubProfilePanel.scss';
 import './styles/custom.scss';
 import { IconCompany, IconLocation, IconTwitter, IconWebsite } from './Icons';
 
-
 export interface GithubProfilePanelOptions {
   dark: boolean;
   githubLoginVariableName: string;
@@ -168,21 +167,22 @@ export const GithubProfilePanel: React.FC<PanelProps> = (props) => {
   }
   const currentGithubLogin = props.replaceVariables(varName);
 
-  if (currentGithubLogin) {
-    useEffect(() => {
-      if (PROFILE_CACHE.hasOwnProperty(currentGithubLogin)) {
-        console.debug('set profile from cache', currentGithubLogin)
-        setProfile(PROFILE_CACHE[currentGithubLogin]);
-      } else {
-        doGetGithbubProfile(currentGithubLogin)
-            .then((res: any) => {
-              setProfile(res.data);
-              PROFILE_CACHE[currentGithubLogin] = res.data;
-            })
-            .catch((e: any) => {});
-      }
-    }, [currentGithubLogin])
-  }
+  useEffect(() => {
+    if (!currentGithubLogin) {
+      return;
+    }
+
+    if (PROFILE_CACHE.hasOwnProperty(currentGithubLogin)) {
+      setProfile(PROFILE_CACHE[currentGithubLogin]);
+    } else {
+      doGetGithbubProfile(currentGithubLogin)
+        .then((res: any) => {
+          setProfile(res.data);
+          PROFILE_CACHE[currentGithubLogin] = res.data;
+        })
+        .catch((e: any) => {});
+    }
+  }, [currentGithubLogin]);
 
   return (
     <div>
