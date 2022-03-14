@@ -10,6 +10,7 @@ import { IconCompany, IconLocation, IconTwitter, IconWebsite } from './Icons';
 
 export interface GithubProfilePanelOptions {
   githubLoginVariableName: string;
+  githubToken: string;
 }
 
 interface GithubProfileProps<T = any> {
@@ -143,15 +144,16 @@ let defaultProfile: GithubProfileProps = {
   updated_at: '2022-02-22T15:07:13Z',
 };
 
-async function doGetGithbubProfile(login: String) {
+async function doGetGithbubProfile(login: String, githubToken: String) {
+  let headers = { 'Content-Type': 'application/json', Authorization: '' };
+  if (githubToken) {
+    headers['Authorization'] = `token ${githubToken}`;
+  }
   return await getBackendSrv().datasourceRequest({
     method: 'GET',
     // the link shown below is made up & will not work but a legit http link is used for this
     url: `https://api.github.com/users/${login}`,
-    headers: {
-      Authorization: 'token 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',
-      'Content-Type': 'application/json',
-    },
+    headers,
   });
 }
 
@@ -161,6 +163,7 @@ let PROFILE_CACHE: ProfileCache = {};
 export const GithubProfilePanel: React.FC<PanelProps> = (props) => {
   const [profile, setProfile] = useState(defaultProfile);
   let varName = (props.options as GithubProfilePanelOptions).githubLoginVariableName;
+  let token = (props.options as GithubProfilePanelOptions).githubToken;
   if (!varName.startsWith('$')) {
     varName = '$' + varName;
   }
@@ -174,14 +177,14 @@ export const GithubProfilePanel: React.FC<PanelProps> = (props) => {
     if (PROFILE_CACHE.hasOwnProperty(currentGithubLogin)) {
       setProfile(PROFILE_CACHE[currentGithubLogin]);
     } else {
-      doGetGithbubProfile(currentGithubLogin)
+      doGetGithbubProfile(currentGithubLogin, token)
         .then((res: any) => {
           setProfile(res.data);
           PROFILE_CACHE[currentGithubLogin] = res.data;
         })
         .catch((e: any) => {});
     }
-  }, [currentGithubLogin]);
+  }, [currentGithubLogin, token]);
 
   return (
     <div>
