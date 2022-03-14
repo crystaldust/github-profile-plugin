@@ -1,44 +1,15 @@
-# Grafana Panel Plugin Template
+# Simple GitHub Profile Panel
 
-[![Build](https://github.com/grafana/grafana-starter-panel/workflows/CI/badge.svg)](https://github.com/grafana/grafana-starter-panel/actions?query=workflow%3A%22CI%22)
+[!profile_panel](./imgs/profile_panel.png)
 
-This template is a starting point for building Grafana Panel Plugins in Grafana 7.0+
+## What is GitHub Profile Panel Plugin?
 
-## What is Grafana Panel Plugin?
+A simple panel plugin to display developer's GitHub profile. Set up a variable to monitor on github login, then the panel will display developer's login, name, joined date, bio and other basic info.
 
-Panels are the building blocks of Grafana. They allow you to visualize data in different ways. While Grafana has several types of panels already built-in, you can also build your own panel, to add support for other visualizations.
-
-For more information about panels, refer to the documentation on [Panels](https://grafana.com/docs/grafana/latest/features/panels/panels/)
+Parts of the code and figures are yanked from [Rondoo - GitHub user search app ](https://github.com/Javiersalcedoj/GitHub-User-Search-App), since it's published without a LICENSE, this project will be modified according to any of the original project's license update.
 
 ## Getting started
 
-1. Install dependencies
+Set up the `GitHub login variable name` in the panel's option, and update the variable anywhere you want the profile panel to display the according developer profile.
 
-   ```bash
-   yarn install
-   ```
-
-2. Build plugin in development mode or run in watch mode
-
-   ```bash
-   yarn dev
-   ```
-
-   or
-
-   ```bash
-   yarn watch
-   ```
-
-3. Build plugin in production mode
-
-   ```bash
-   yarn build
-   ```
-
-## Learn more
-
-- [Build a panel plugin tutorial](https://grafana.com/tutorials/build-a-panel-plugin)
-- [Grafana documentation](https://grafana.com/docs/)
-- [Grafana Tutorials](https://grafana.com/tutorials/) - Grafana Tutorials are step-by-step guides that help you make the most of Grafana
-- [Grafana UI Library](https://developers.grafana.com/ui) - UI components to help you build interfaces using Grafana Design System
+[!setup_monitor_var](./imgs/setup_confs.png)

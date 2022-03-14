@@ -9,7 +9,6 @@ import './styles/custom.scss';
 import { IconCompany, IconLocation, IconTwitter, IconWebsite } from './Icons';
 
 export interface GithubProfilePanelOptions {
-  dark: boolean;
   githubLoginVariableName: string;
 }
 
