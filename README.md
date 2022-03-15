@@ -1,6 +1,7 @@
 # Simple GitHub Profile Panel
 
-[!profile_panel](./imgs/profile_panel.png)
+![profile_panel](imgs/profile_panel.png)
+
 
 ## What is GitHub Profile Panel Plugin?
 
@@ -12,4 +13,7 @@ Parts of the code and figures are yanked from [Rondoo - GitHub user search app ]
 
 Set up the `GitHub login variable name` in the panel's option, and update the variable anywhere you want the profile panel to display the according developer profile.
 
-[!setup_monitor_var](./imgs/setup_confs.png)
+
+
+
+![setup_monitor_var](imgs/setup_confs.png)
